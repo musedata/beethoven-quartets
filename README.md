@@ -1,5 +1,5 @@
 These MuseData files were used to print the PDF scores for Beethoven's
-string quartets found on the [Beethoven String Quartets website](http://wiki.ccarh.org/wiki/Beethoven_String_Quartets#Scores_.28downloadable.29)
+string quartets found on the [Beethoven String Quartets website](http://wiki.ccarh.org/wiki/Beethoven_String_Quartets#Scores_.28downloadable.29).
 
 # Directories 
 
@@ -49,4 +49,31 @@ program by using the =p option:
 
 The footer directory contains descriptions of page footers which are added
 to the final PDFs of the graphical music. 
+
+# Parts
+
+Part MPG files are not yet available.  Basic parts can be created
+by extracting a single part file from the concatenated parts in the
+stage2 directory.  The [examples](examples) directory contains separate 
+stage2 MuseData part files for the first movement of string quartet 
+No. 1, op. 18/1.
+
+When a part is extracted to print by itself, you will have to change
+two lines in the header for the part.  For example, change line 15 of
+the cello part from:
+
+<pre>
+score: part 4 of 4
+</pre>
+
+to: 
+
+<pre>
+score: part 1 of 1
+</pre>
+
+Before sending it as input to muse2ps.  The muse2ps program only prints
+scores, so the "parts" line underneath the "score" line in the file header
+is ignored (muse2ps does not contain the part-generating code from dmuse).
+
 
