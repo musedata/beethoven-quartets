@@ -1,6 +1,5 @@
 These MuseData files were used to print the PDF scores for Beethoven's
-string quartets found on the website:
-   http://beethoven-string-quartets.ccarh.org
+string quartets found on the [Beethoven String Quartets website](http://wiki.ccarh.org/wiki/Beethoven_String_Quartets#Scores_.28downloadable.29)
 
 # Directories 
 
