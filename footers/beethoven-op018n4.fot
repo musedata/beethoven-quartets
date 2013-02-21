@@ -1,0 +1,9 @@
+@START: FOOTER
+@SHADE: 1.00
+@FOOT1: (C) 2009 Center for Computer Assisted Research in the Humanities (CCARH)
+@FOOT2:	http://beethoven.ccarh.org
+@FOOT3: Beethoven: String Quartet No. 4 in C Minor, Op. 18, No. 4 [1798--1800]
+@FOOT1R: %D
+@FOOT2R: %I
+@FOOT3R: page %P
+@END: FOOTER

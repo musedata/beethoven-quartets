@@ -1,0 +1,9 @@
+@START: FOOTER
+@SHADE: 1.00
+@FOOT1: (C) 2012 Center for Computer Assisted Research in the Humanities (CCARH)
+@FOOT2:	http://beethoven.ccarh.org
+@FOOT3: Beethoven: String Quartet No. 13 in B-flat Major, Op. 130 [1825]
+@FOOT1R: %D
+@FOOT2R: %I
+@FOOT3R: page %P
+@END: FOOTER
