@@ -1,5 +1,5 @@
 These MuseData files were used to print the PDF scores for Beethoven's
-string quartets found on the [Beethoven String Quartets website](http://wiki.ccarh.org/wiki/Beethoven_String_Quartets#Scores_.28downloadable.29).
+string quartets found on the [Beethoven String Quartets website](http://wiki.ccarh.org/wiki/Beethoven_String_Quartets#Scores_.28downloadable.29) which are also linked to in the PDF column below.
 
 
 
@@ -12,8 +12,16 @@ string quartets found on the [Beethoven String Quartets website](http://wiki.cca
 | 18/5 | No. 5   | [X](http://scores.ccarh.org/beethoven/quartets/beethoven-quartet05-op18n5.pdf) | [X](pages-score/beethoven-op018n5.pag) | [01](stage2/beethoven-op018n5-01.msd) [02](stage2/beethoven-op018n5-02.msd) [03](stage2/beethoven-op018n5-03.msd) [04](stage2/beethoven-op018n5-04.msd) |
 | 18/6 | No. 6   | [X](http://scores.ccarh.org/beethoven/quartets/beethoven-quartet06-op18n6.pdf) | [X](pages-score/beethoven-op018n6.pag) | [01](stage2/beethoven-op018n6-01.msd) [02](stage2/beethoven-op018n6-02.msd) [03](stage2/beethoven-op018n6-03.msd) [04](stage2/beethoven-op018n6-04.msd)  [05](stage2/beethoven-op018n6-05.msd) |
 | 59/1 | No. 7   | [X](http://scores.ccarh.org/beethoven/quartets/beethoven-quartet07-op59n1.pdf) | [X](pages-score/beethoven-op059n1.pag) | [01](stage2/beethoven-op059n1-01.msd) [02](stage2/beethoven-op059n1-02.msd) [03](stage2/beethoven-op059n1-03.msd) [04](stage2/beethoven-op059n1-04.msd) |
-| 59/2 | No. 8   | [X](http://scores.ccarh.org/beethoven/quartets/beethoven-quartet08-op59n2.pdf) | [X](pages-score/beethoven-op059n2.pag) | [01](stage2/beethoven-op059n2-02.msd) [02](stage2/beethoven-op059n2-02.msd) [03](stage2/beethoven-op059n2-03.msd) [04](stage2/beethoven-op059n2-04.msd) |
-| 59/3 | No. 9   | [X](http://scores.ccarh.org/beethoven/quartets/beethoven-quartet09-op59n3.pdf) | [X](pages-score/beethoven-op059n3.pag) | [01](stage2/beethoven-op059n3-03.msd) [02](stage2/beethoven-op059n3-02.msd) [03](stage2/beethoven-op059n3-03.msd) [04](stage2/beethoven-op059n3-04.msd) |
+| 59/2 | No. 8   | [X](http://scores.ccarh.org/beethoven/quartets/beethoven-quartet08-op59n2.pdf) | [X](pages-score/beethoven-op059n2.pag) | [01](stage2/beethoven-op059n2-01.msd) [02](stage2/beethoven-op059n2-02.msd) [03](stage2/beethoven-op059n2-03.msd) [04](stage2/beethoven-op059n2-04.msd) |
+| 59/3 | No. 9   | [X](http://scores.ccarh.org/beethoven/quartets/beethoven-quartet09-op59n3.pdf) | [X](pages-score/beethoven-op059n3.pag) | [01](stage2/beethoven-op059n3-01.msd) [02](stage2/beethoven-op059n3-02.msd) [03](stage2/beethoven-op059n3-03.msd) [04](stage2/beethoven-op059n3-04.msd) |
+| 74   | No. 10  | [X](http://scores.ccarh.org/beethoven/quartets/beethoven-quartet10-op74.pdf) | [X](pages-score/beethoven-op074.pag) | [01](stage2/beethoven-op074-03.msd) [02](stage2/beethoven-op074-02.msd) [03](stage2/beethoven-op074-03.msd) [04](stage2/beethoven-op074-04.msd) |
+| 95   | No. 11  | [X](http://scores.ccarh.org/beethoven/quartets/beethoven-quartet11-op95.pdf) | [X](pages-score/beethoven-op095.pag) | [01](stage2/beethoven-op095-03.msd) [02](stage2/beethoven-op095-02.msd) [03](stage2/beethoven-op095-03.msd) [04](stage2/beethoven-op095-04.msd) |
+| 127  | No. 12  | [X](http://scores.ccarh.org/beethoven/quartets/beethoven-quartet12-op127.pdf) | [X](pages-score/beethoven-op127.pag) | [01](stage2/beethoven-op127-03.msd) [02](stage2/beethoven-op127-02.msd) [03](stage2/beethoven-op127-03.msd) [04](stage2/beethoven-op127-04.msd) |
+| 130  | No. 13  | [X](http://scores.ccarh.org/beethoven/quartets/beethoven-quartet13-op130.pdf) | [X](pages-score/beethoven-op130.pag) | [01](stage2/beethoven-op130-03.msd) [02](stage2/beethoven-op130-02.msd) [03](stage2/beethoven-op130-03.msd) [04](stage2/beethoven-op130-04.msd) [05](stage2/beethoven-op130-05.msd) [06](stage2/beethoven-op130-06.msd) |
+| 133  | No. 13b | [X](http://scores.ccarh.org/beethoven/quartets/beethoven-quartet14b-op133.pdf) | [X](pages-score/beethoven-op133.pag) | [01](stage2/beethoven-op133.msd) |
+| 131  | No. 14  | [X](http://scores.ccarh.org/beethoven/quartets/beethoven-quartet14-op131.pdf) | [X](pages-score/beethoven-op131.pag) | [01](stage2/beethoven-op131-03.msd) [02](stage2/beethoven-op131-02.msd) [03](stage2/beethoven-op131-03.msd) [04](stage2/beethoven-op131-04.msd) [05](stage2/beethoven-op131-05.msd) [06](stage2/beethoven-op131-06.msd) [07](stage2/beethoven-op131-07.msd) |
+| 132  | No. 15  | [X](http://scores.ccarh.org/beethoven/quartets/beethoven-quartet15-op132.pdf) | [X](pages-score/beethoven-op132.pag) | [01](stage2/beethoven-op132-03.msd) [02](stage2/beethoven-op132-02.msd) [03](stage2/beethoven-op132-03.msd) [04](stage2/beethoven-op132-04.msd) [05](stage2/beethoven-op132-05.msd) |
+| 135  | No. 16  | [X](http://scores.ccarh.org/beethoven/quartets/beethoven-quartet16-op135.pdf) | [X](pages-score/beethoven-op135.pag) | [01](stage2/beethoven-op135-03.msd) [02](stage2/beethoven-op135-02.msd) [03](stage2/beethoven-op135-03.msd) [04](stage2/beethoven-op135-04.msd) [05](stage2/beethoven-op135-05.msd) |
 
 # Directories 
 
