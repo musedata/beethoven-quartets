@@ -1,6 +1,10 @@
 These MuseData files were used to print the PDF scores for Beethoven's
-string quartets found on the [Beethoven String Quartets website](http://wiki.ccarh.org/wiki/Beethoven_String_Quartets#Scores_.28downloadable.29) which are also linked to in the PDF column below.
-
+string quartets found on the [Beethoven String Quartets
+website](http://wiki.ccarh.org/wiki/Beethoven_String_Quartets#Scores_.28downloadable.29)
+which are also linked to in the PDF column below.  The [MPG](pages-score)
+and [Stage 2](stage2) files can be converted to PostScript using
+[muse2ps](https://github.com/musedata/muse2ps) from the command-line,
+or within the [dmuse](http://dmuse.ccarh.org) environment.
 
 
 | Opus | Quartet | [PDF](http://beethoven-string-quartets.ccarh.org) | [MPG](pates-score) | [Stage 2](stage2) (by movement) |
