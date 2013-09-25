@@ -4708,7 +4708,7 @@ B4     8      1 q     d
 measure 170
 D5    12      1 q.    d        ZF
 P   C32:y-3   C33:y2
-mheary3           |:
+mheavy3           |:
 $   K:-3  D:Tempo I
 rest   4      1 e
 rest   8      1 q
