@@ -1,0 +1,133 @@
+#!/usr/local/bin/perl
+#
+# Filename:      bin/measurerange
+# Author:        Craig Stuart Sapp
+# Creation Date: Mon Feb 25 15:34:50 PST 2019
+# Last Modified: Mon Feb 25 15:34:53 PST 2019
+# Syntax:        perl 5
+# vim:           ts=3
+#
+# Description: This PERL script extracts a measure range from a single
+#              musedata part file (see bin/extracfiles for extracting
+#              parts from multi-part files first).
+#
+# Usage:       measurerange -b 10 -e 20 file(s)
+#
+#              The output files will contain have the added extension
+#              "-mm10-20.txt" added to the original filename(s). or "-m10.txt"
+#              if there is only a single measure extracted.
+# 
+#              The default is for -b to be the beginning, and -e to be the end
+#              of the score.
+#
+
+use strict;
+use Getopt::Long;
+
+my $beginning = 0;
+my $ending = 999999;
+Getopt::Long::Configure("bundling");
+GetOptions (
+   's|start|b|begin=s' => \$beginning,
+   'e|end|stop=s' => \$ending
+);
+
+use strict;
+my @files = @ARGV;
+
+if (@ARGV == 0) {
+	die "Usage: $0 [-b #] [-e #] part-file(s)\n";
+}
+
+if ($beginning > $ending) {
+	my $tempy = $beginning;
+	$beginning = $ending;
+	$ending = $tempy;
+}
+
+for (my $i=0; $i<@ARGV; $i++) {
+	processFile($ARGV[$i], $beginning, $ending);
+}
+
+
+
+##############################
+##
+## processFile --
+##
+
+sub processFile {
+	my ($filename, $beginning, $ending) = @_;
+	my $basename = $filename;
+	$basename =~ s/\.[^.]*$//;
+	my $extension = "-";
+	if ($beginning == $ending) {
+		$extension .= "m";
+	} else {
+		$extension .= "mm";
+	}
+	$extension .= $beginning;
+	$extension .= "-";
+	if ($ending > 9999) {
+		$extension .= "end";
+	} else {
+		$extension .= $ending;
+	}
+	$extension .= ".txt";
+
+	open (INFILE, $filename) or die;
+	my @contents = <INFILE>;
+	close INFILE;
+	my $length = @contents;
+	if ($length == 0) {
+		die "The input file $filename is empty\n";
+	}
+
+	my $outname = "$basename$extension";
+	print STDERR "Creating file $outname\n";
+	open (OUTFILE, ">$outname") or die "Cannot write $outname\n";
+
+	# print the header
+	my $i = 0;
+	my $line;
+	while (($i < @contents) && ($contents[$i] !~ /^\$/)) {
+		print OUTFILE $contents[$i];
+		$i++;
+	}
+	if ($contents[$i] =~ /^\$/) {
+		print OUTFILE $contents[$i];
+		$i++;
+	} else {
+		die "Cannot find \$ line in input file: $contents[$i]\n";
+	}
+
+	my $active = 0;
+	if ($beginning == 0) {
+		$active = 1;
+	}
+	
+	my $start = $i;
+	my $measure;
+	for ($i=$start; $i<@contents; $i++) {
+		$line = $contents[$i];
+		if ($line =~ /^m[^\s]+\s(\d+)\s*$/) {
+			$measure = $1;
+		} else {
+			$measure = -1;
+		}
+		if ($measure == $beginning) {
+			$active = 1;
+		}
+		if ($active && ($measure == $ending)) {
+			$active = 0;
+			print OUTFILE $contents[$i];
+			print OUTFILE "/END\r\n";
+			last;
+		}
+		next if !$active;
+		print OUTFILE $contents[$i];
+	}
+	close OUTFILE;
+}
+
+

@@ -1,0 +1,74 @@
+#!/usr/local/bin/perl
+#
+# Filename:      bin/extractfiles
+# Author:        Craig Stuart Sapp
+# Creation Date: Mon Feb 25 15:31:09 PST 2019
+# Last Modified: Mon Feb 25 15:31:43 PST 2019
+# Syntax:        perl 5
+# vim:           ts=3
+#
+# Description: This PERL script extracts individual part files from the *.msd
+#              files that are stored in the musedata directory.  Note
+#              that when extracting from multiple *.msd files, you
+#              should unpack each file in a different directory,
+#              or move the extracted files since they are typically
+#              the same names in each file, such as 01 for the file
+#              containing part 1, 02 for the file containing part 2,
+#              and so on.
+#
+# Usage:       extractfiles file.msd
+#
+#######
+#
+# A new file starts like this:
+#
+# &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+# FILENAME = 01
+# &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+#
+# And file ends like this (keep this line):
+#    /END
+#
+# Currently anything after /END will be ignored.  There could be comments after
+# this line, so it may be useful to preserve contents of the file after this line.
+#
+# An end separator may follow:
+#    /eof
+#
+# And an end of transmission may also follow:
+#    //
+#
+
+use strict;
+my @contents = <>;
+my $writing = 0;
+
+for (my $i=0; $i<@contents; $i++) {
+	my $line = $contents[$i];
+	chomp $line;
+	if ($line =~ /^&&&&&&&&&&&&&&&&&&&&&&&&/) {
+		if ($contents[$i+1] =~ /FILENAME\s*=\s*([^\s]+)\s*$/) {
+			# new filename to write to
+			my $filename = $1;
+			close FILE if $writing;
+			open FILE, ">$filename" or die "Cannot write $filename\n";
+			print STDERR "Creating file $filename\n";
+			$writing = 1;
+			$i+=2;
+			while (($i < @contents) && ($contents[$i] !~ /^&&&&&&&&&&&&&&&&&&/)) {
+				$i++;
+			}
+			next;
+		}
+	} elsif ($line =~ /^\/eof/) {
+		# close current file
+		close FILE;
+		$writing = 0;
+		next;
+	}
+	next if !$writing;
+	print FILE "$line\n";
+}
+close FILE if $writing;
+
+
