@@ -1,0 +1,67 @@
+#!/usr/local/bin/perl
+#
+# Filename:      bin/excerpt
+# Author:        Craig Stuart Sapp
+# Creation Date: Wed Feb 27 23:31:35 EST 2019
+# Last Modified: Wed Feb 27 23:31:39 EST 2019
+# Syntax:        perl 5
+# vim:           ts=3
+#
+# Description: Extract a measure range from an *.msd file.
+#
+# Usage:       excerpt -b 10 -e 20 file
+#
+#              The output files will contain have the added extension
+#              "-mm10-20.txt" added to the original filename(s). or "-m10.txt"
+#              if there is only a single measure extracted.
+# 
+#              The default is for -b to be the beginning, and -e to be the end
+#              of the score.
+#
+# Needs to be run from the musedata directory
+#
+
+use strict;
+use Getopt::Long;
+
+my $beginning = 0;
+my $ending = 999999;
+my $nometer = 0;
+Getopt::Long::Configure("bundling");
+GetOptions (
+   's|start|b|begin=s' => \$beginning,
+   'e|end|stop=s' => \$ending,
+   'M|no-meter' => \$nometer
+);
+
+die "Usage: $0 -b # -e # file\n" if @ARGV != 1;
+
+my $base = $ARGV[0];
+$base =~ s/\.[^.]+$//;
+
+my $extension = "-";
+if ($beginning == $ending) {
+	$extension .= "m";
+	$extension .= $beginning;
+} else {
+	$extension .= "mm";
+	$extension .= $beginning;
+	$extension .= "-";
+	if ($ending > 9999) {
+		$extension .= "end";
+	} else {
+		$extension .= $ending;
+	}
+}
+
+my $moption = "";
+$moption = " -M " if $nometer;
+
+`rm 0? 0?*.txt`;
+`../bin/extractfiles $ARGV[0]`;
+`../bin/measurerange $moption -s $beginning -e $ending 0?`;
+`../bin/collatemd2 0?*.txt > $base$extension.txt`;
+`rm 0? 0?*.txt`;
+
+
+

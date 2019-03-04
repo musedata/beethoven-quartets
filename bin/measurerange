@@ -26,11 +26,14 @@ use Getopt::Long;
 
 my $beginning = 0;
 my $ending = 999999;
+my $nometer = 0;
 Getopt::Long::Configure("bundling");
 GetOptions (
    's|start|b|begin=s' => \$beginning,
-   'e|end|stop=s' => \$ending
+   'e|end|stop=s' => \$ending,
+   'M|no-meter' => \$nometer
 );
+$ending += 1;
 
 use strict;
 my @files = @ARGV;
@@ -91,11 +94,20 @@ sub processFile {
 	my $i = 0;
 	my $line;
 	while (($i < @contents) && ($contents[$i] !~ /^\$/)) {
-		print OUTFILE $contents[$i];
+		my $line = $contents[$i];
+		$line =~ s/score/scrcon/g;
+		print OUTFILE $line;
 		$i++;
 	}
 	if ($contents[$i] =~ /^\$/) {
-		print OUTFILE $contents[$i];
+		my $dline = $contents[$i];
+		chomp $dline;
+		$dline =~ s/\s+$//;
+		if ($nometer) {
+			$dline =~ s/D:.*//;
+			$dline =~ s/T:[^\s]+ //;
+		}
+		print OUTFILE "$dline\r\n";
 		$i++;
 	} else {
 		die "Cannot find \$ line in input file: $contents[$i]\n";
@@ -117,6 +129,7 @@ sub processFile {
 		}
 		if ($measure == $beginning) {
 			$active = 1;
+			next;
 		}
 		if ($active && ($measure == $ending)) {
 			$active = 0;

@@ -23,6 +23,7 @@ use strict;
 
 die "Usage $0 stage1 or stage2 file(s)\n" if @ARGV == 0;
 
+print "\@muse2psv1==s^[(....)]^\r\n";
 my @files = sort @ARGV;
 foreach my $file (@files) {
    next if (!-r $file);    # Added Tue Dec 21 11:29:52 PST 2010
@@ -30,7 +31,7 @@ foreach my $file (@files) {
    printheader($file);
    printcontents($file);
 }
-print "//\n";
+print "//\r\n";
 
 exit(0);
 
@@ -49,11 +50,9 @@ exit(0);
 sub printheader {
    my ($file) = @_;
    $file =~ s/.*\///;
-   print <<"EOT";
-&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-FILENAME = $file
-&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-EOT
+	print "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\r\n";
+	print "FILENAME = $file\r\n";
+	print "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\r\n";
 }
 
 
@@ -75,7 +74,7 @@ sub printcontents {
       print $line;
    } 
    if ($line !~ /^\/eof/) {  # print /eof line if not found in the data
-      print "/eof\n";
+      print "/eof\r\n";
    }
 }
 

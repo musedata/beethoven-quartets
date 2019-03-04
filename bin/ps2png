@@ -1,0 +1,23 @@
+#!/usr/local/bin/perl
+#
+# Programmer:    Craig Stuart Sapp <craig@ccrma.stanford.edu>
+# Creation Date: Mon Mar  4 15:45:06 EST 2019
+# Last Modified: Mon Mar  4 15:45:09 EST 2019
+# Filename:      ps2png
+# Syntax:        perl 5
+#
+# Description:   Converts a PostScript page into a PNG image.
+#                Requires the imagemagick convert tool to be installed.
+#
+
+use strict;
+my @files = @ARGV;
+
+foreach my $file (@files) {
+	my $basename = $file;
+	$basename =~ s/\.[^.]*$//;
+	`convert -density 300 -background white -alpha background -alpha off  $file +adjoin  $basename.png`;
+}
+
+
+
